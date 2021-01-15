@@ -1,16 +1,32 @@
 import speech_recognition as sr
+from datetime import datetime
+
+from pydub.silence import split_on_silence
+from pydub import AudioSegment
+
+from moviepy.editor import *
+from PIL import Image
+import numpy as np
+import sys
+import cv2
+import os 
+
+from . import sModel , iModel
 
 filename = './Media/OSR_us_000_0010_8k.wav'
 
-import speech_recognition as sr 
-import os 
-from pydub import AudioSegment
-from pydub.silence import split_on_silence
-
-import sys
-from moviepy.editor import *
-
 r = sr.Recognizer()
+
+classes = ['Algebra',
+ 'Calculus',
+ 'City',
+ 'Curves',
+ 'Education',
+ 'Flower',
+ 'Geometry',
+ 'Light',
+ 'Science',
+ 'Trigonometry']
 
 def get_large_audio_transcription(path):
     """
@@ -59,7 +75,23 @@ def videoToAudio(filename) :
     
     return audioFilename
 
+def saveVideo(filename) :
+    vc = cv2.VideoCapture(filename)
+    frame_ = vc.read()
+
+    frame = cv2.resize(frame_,(128,128,3))
+
+    pred = iModel.predict([frame])
+
+    if np.max(pred) < 0.5 : 
+        return -1 
+    else :
+        im = Image.fromarray(frame_)
+        im.save('Saves/'+classes[np.argmax(pred,axis=1)[0]]+'_'+str(datetime.now()))
+        return np.argmax(pred,axis=1)[0]
+
 def videoToText(filename) :
+    saveVideo(filename)
     audioFilename = videoToAudio(filename)
     text = audioToText(audioFilename)
 

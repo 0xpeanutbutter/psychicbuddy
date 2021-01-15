@@ -23,7 +23,7 @@ from transformers import (
 mPath = "Model/"
 smodel_path = mPath + 'file_classification.h5'
 sweight_path = mPath + 'classification_weights'
-imodel_path = mPath + 'image_classification.h5'
+imodel_path = mPath + 'image_model.h5'
 iweight_path = mPath + 'image_weights'
 
 Summarizer = pipeline("summarization")
