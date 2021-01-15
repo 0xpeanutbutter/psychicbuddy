@@ -1,0 +1,116 @@
+   body {
+    color: #222222;
+    font-size: 1em;
+    font-family: 'Open Sans', "Helvetica Neue", sans-serif;
+  }
+  h2{
+      text-align: center;
+  }
+  
+  .introduction > p, 
+
+  .questions > h2 {
+    font-family: "Gentium Book Basic", Georgia, serif;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .starcontainer h2 {
+    font-size: 2.8em;
+    margin-bottom: 0.2em;
+  }
+  
+  .starcontainerportfolio > h2 {
+    text-align: center;
+    font-size: 2.8em;
+    margin-bottom: 0.2em;
+  }
+  
+  .fa-star {
+    margin-bottom: 0 auto;
+  }
+  
+  hr {
+    border: 2px solid #35268a;
+    width: 15.7em;
+    margin-top: -1em;
+    margin-bottom: 2em; 
+    background-color: rgb(12, 9, 138);
+  }
+  
+  hr, .fa-star {
+    background-color: rgb(255, 255, 255);
+    padding: 0 .25em
+  }
+  
+  .starcontainer .fa {
+    color: #a1a1a1;
+  }
+  
+
+
+  .masthead-heading, 
+  .starcontainer,
+  .starcontainerportfolio {
+    text-align: center;
+  }
+  
+  .masthead {
+    background-image: url("https://i.pinimg.com/originals/51/95/eb/5195ebb8c5f9772deda82aa2937134d3.jpg");
+    background-repeat: no-repeat;
+    border-top: solid 1em #5f60bb;
+    border-bottom: solid 1em #5f60bb;
+    background-size: cover;
+    padding: 6em 0;
+  }
+  
+  .masthead > img {
+    max-height: 6em;
+    border-radius: 150%;
+    display: block;
+    margin: 0 auto;
+    border: 4px solid #5f60bb;
+  }
+  
+  .masthead-intro {
+    margin-bottom: 0.1em;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 2em;
+  }
+  
+  .masthead-heading {
+    margin-top: -0.2em;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: bold;
+    font-size: 6em;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+  
+  .introduction, 
+  .location, 
+  .questions {
+    max-width: 38em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+  }
+  
+  .questions {
+    padding-bottom: 1.5em;
+  }
+  
+
+  li {
+      list-style: none;
+     }
+
+  
+  @media only screen and (max-width: 500px) {
+    .masthead {
+      padding: 3em 0; 
+    }
+    .masthead-heading {
+      font-size: 3em;
+    }
+  }
