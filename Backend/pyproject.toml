@@ -13,6 +13,8 @@ pandas = "^1.2.0"
 tensorflow = "^2.4.0"
 flask = "^1.1.2"
 sentencepiece = "^0.1.95"
+SpeechRecognition = "^3.8.1"
+pydub = "^0.24.1"
 
 [tool.poetry.dev-dependencies]
 

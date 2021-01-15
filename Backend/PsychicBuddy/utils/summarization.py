@@ -1,3 +1,4 @@
+from keras.models import Model, load_model
 import pandas as pd
 import numpy as np
 
@@ -19,10 +20,60 @@ from transformers import (
     XLNetTokenizer,
 )
 
+mPath = "Model/"
+smodel_path = mPath + 'file_classification.h5'
+sweight_path = mPath + 'classification_weights'
+imodel_path = mPath + 'image_classification.h5'
+iweight_path = mPath + 'image_weights'
+
 Summarizer = pipeline("summarization")
 Tokenizer = XLNetTokenizer.from_pretrained('xlnet-large-cased')
 
+class NullModel :
+    def __init__(self) :
+        pass
+    def predict(self,*args,**kwargs) :
+        raise Exception
+
+def getModel(model_path,weight_path) :
+    try :
+        print('[+] Loading Model')
+        model = load_model(model_path)
+        print('[+] Loading Weights')
+        model.load_weights(weight_path)
+
+        return model
+    except OSError :
+        print("[!] Model Not Loaded")
+        return NullModel
+
+sModel = getModel(smodel_path,sweight_path)
+iModel = getModel(imodel_path,iweight_path)
+
 n_topics = 10
+
+classes = ['Algebra',
+ 'Calculus',
+ 'City',
+ 'Curves',
+ 'Education',
+ 'Flower',
+ 'Geometry',
+ 'Light',
+ 'Science',
+ 'Trigonometry']
+
+def getCategory(sentence) :
+    summary = Summarizer(sentence)[0]['summary_text']
+    tokenized = Tokenizer.encode(summary)
+    xData = tokenized[:20]
+
+    preds = model.predict([xData])
+    preds = np.argmax(preds,axis=1)
+
+    classification = preds[0]
+    
+    return classes[classification]
 
 def getRandom(x) :
     return random.random()
