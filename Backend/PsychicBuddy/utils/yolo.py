@@ -10,7 +10,7 @@ import warnings
 warnings.filterwarnings('ignore')
 warnings.filterwarnings('always')
 
-tf.reset_default_graph()
+tf.compat.v1.reset_default_graph()
 
 _BATCH_NORM_DECAY = 0.9
 _BATCH_NORM_EPSILON = 1e-05

@@ -16,6 +16,10 @@ sentencepiece = "^0.1.95"
 SpeechRecognition = "^3.8.1"
 pydub = "^0.24.1"
 pillow = "^8.1.0"
+moviepy = "^1.0.3"
+opencv-python = "^4.5.1"
+ipython = "^7.20.0"
+seaborn = "^0.11.1"
 
 [tool.poetry.dev-dependencies]
 

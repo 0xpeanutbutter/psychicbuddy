@@ -11,7 +11,7 @@ import sys
 import cv2
 import os 
 
-from . import sModel , iModel
+from .summarization import sModel , iModel
 
 filename = './Media/OSR_us_000_0010_8k.wav'
 
