@@ -38,8 +38,17 @@ html {
    -webkit-font-smoothing: antialiased;
    text-align: center;
    background-image: url("https://i.pinimg.com/originals/51/95/eb/5195ebb8c5f9772deda82aa2937134d3.jpg");
+   background-size: auto;
 }
 
 button{
   background-color: #fff;
+}
+
+.abt{
+  font-family: 'helvetica neue', 'arial', sans-serif;
+  font-size: 24px;
+  font-weight: bolder;
+  color: aqua;
+
 }
